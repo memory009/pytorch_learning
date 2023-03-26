@@ -64,17 +64,19 @@ for epoch in range(num_epochs):
 # Plot
 # detach()分离函数， .numpy()作用是将tensor格式转成numpy格式，让matplotlib可以直接用
 predicted = model(X).detach().numpy()
+# print(predicted)
 
+
+
+
+fig1 = plt.figure()
 col_1 = [[row[0]] for row in X_numpy]
-col_2 = [[row[1]] for row in X_numpy]
-
 plt.plot(col_1, y_numpy, 'ro')
-plt.plot(col_2, y_numpy, 'bo')
-
 plt.plot(col_1, predicted, 'r')
+
+
+fig2 = plt.figure()
+col_2 = [[row[1]] for row in X_numpy]
+plt.plot(col_2, y_numpy, 'bo')
 plt.plot(col_2, predicted, 'b')
 plt.show()
-
-
-
-
