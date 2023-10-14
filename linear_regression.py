@@ -26,6 +26,8 @@ y = torch.from_numpy(np.array(y_numpy)).float()
 y = y.view(y.shape[0],1)
 
 n_samples, n_features = X.shape
+# print(n_samples)
+# print(n_features)
 n_y = y.shape[1]
 # print(X.shape)
 

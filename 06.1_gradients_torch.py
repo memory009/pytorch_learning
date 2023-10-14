@@ -20,7 +20,7 @@ input_size = n_features
 output_size = n_features
 
 # model 调用torch.nn做了一个线性回归
-model = nn.Linear(input_size, output_size)
+# model = nn.Linear(input_size, output_size)
 # print(model)
 #输出Linear(in_features=1, out_features=1, bias=True)
 # in_features：输入张量的size，out_features:输出张量的size， bias：偏置项
@@ -41,6 +41,7 @@ class LinearRegression(nn.Module):
         return self.lin(x)
 
 model = LinearRegression(input_size, output_size)
+
 ##########################################################
 
 print(f'Prediction before training: f(5) = {model(X_test).item():.3f}')

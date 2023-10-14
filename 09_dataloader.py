@@ -36,7 +36,7 @@ class WineDataset(Dataset):
         # here the first column is the class label, the rest are the features
         self.x = torch.from_numpy(xy[:, 1:]) # size [n_samples, n_features]
         self.y = torch.from_numpy(xy[:, [0]]) # size [n_samples, 1]
-        self.n_samples = xy.shape[0]
+        self.n_samples = xy.shape[0] # 获取行信息，有多少行就有多少个samples
 
     # support indexing such that dataset[i] can be used to get i-th sample
     def __getitem__(self, index):

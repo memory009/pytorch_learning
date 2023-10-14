@@ -20,7 +20,7 @@ def loss(y, y_pred):
     return ((y_pred - y)**2).mean()
 
 # y_pred = w * x
-# J = MSE = 1/N * (w*x - y)**2
+# J = MSE_loss = 1/N * (w*x - y)**2
 # dJ/dw = 1/N * 2x(w*x - y)
 def gradient(x, y, y_pred):
     # np.dot() 点乘
@@ -43,7 +43,7 @@ for epoch in range(n_iters):
     l = loss(Y, y_pred)
 
     # gradients
-    dw = gradient(X, Y, y_pred)
+    dw = gradient(X, Y, y_pred)  # #dl/dw，相当于损失函数关于权重 w 的梯度，和04中w.grad一样
 
     #update weights
     w -= learning_rate * dw

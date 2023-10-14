@@ -16,12 +16,13 @@ import matplotlib.pyplot as plt
 X_numpy, y_numpy = datasets.make_regression(n_samples=100, n_features=1, noise=20, random_state=4)
 # X_numpy : (n_samples, n_features)  即随机生成100行1列的数组
 # y_numpy : (n_samples)  即随机生成100个数
-# print(X_numpy)
+# print(X_numpy.shape)
 
 # astype(将numpy转换为tensor样式，以进行后续操作)
 X = torch.from_numpy(X_numpy.astype(np.float32))
 y = torch.from_numpy(y_numpy.astype(np.float32))
-# y是100个数，所以需要转换为100行1列的二维数组，使之和x_numpy一样才有可比性，不能分开写成两行是因为两次随机生成的数不一致
+# y是100个数，所以需要转换为100行1列的二维数组，使之和x_numpy一样才有可比性，
+# 因为X_numpy是(100,1)，y_numpy一开始是(100,)，所以对y进行view操作，使之变成(100,1)
 y = y.view(y.shape[0],1)
 
 

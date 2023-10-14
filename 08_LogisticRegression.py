@@ -97,7 +97,8 @@ for epoch in range(num_epochs):
     if (epoch+1) % 10 == 0:
         print(f'epoch: {epoch+1}, loss = {loss.item():.4f}')
 
-# 在pytorch中，tensor有一个requires_grad参数，如果设置为True，则反向传播时，该tensor就会自动求导。tensor的requires_grad的属性默认为False,
+# 在pytorch中，tensor有一个requires_grad参数，如果设置为True，则反向传播时，该tensor就会自动求导。
+# tensor的requires_grad的属性默认为False,
 # 当requires_grad设置为False时,反向传播时就不会自动求导了，因此大大节约了显存或者说内存。
 # with torch.no_grad的作用,在该模块下，所有计算得出的tensor的requires_grad都自动设置为False。
 with torch.no_grad(): 
@@ -108,7 +109,8 @@ with torch.no_grad():
     # print(y_test)
     # print(y_test.shape[0])
     # print(y_test.shape[0]),输出114，意思是输出y_test.shape中的第一维，第一个【】中包含114个二维数组，即【】
-    # torch.eq()对两个张量Tensor进行逐元素的比较，若相同位置的两个元素相同，则返回True；若不同，返回False,进行sum()之后求出具体有多少个值是相同的，然后除以总的数量得出acc
+    # torch.eq()对两个张量Tensor进行逐元素的比较，若相同位置的两个元素相同，则返回True；
+    # 若不同，返回False,进行sum()之后求出具体有多少个值是相同的，然后除以总的数量得出acc
     acc = y_predicted_cls.eq(y_test).sum() / float(y_test.shape[0])
     # print(acc)
     # tensor(0.8860)
